@@ -1,0 +1,48 @@
+.basket {
+  &__list {
+    width: 100%;
+  }
+
+  &__item {
+    border-top: 1px solid #ccc;
+    padding: 20px 0;
+    widows: 100%;
+    display: flex;
+    align-items: center;
+
+    &-index {
+      flex: 0 0 10%;
+    }
+    &-name {
+      font-weight: bold;
+      font-size: 18px;
+      flex: 0 0 20%;
+    }
+
+    &-desc {
+      font-size: 12px;
+
+      flex: 0 0 20%;
+    }
+    &-count {
+      flex: 0 0 15%;
+      input {
+        max-width: 50px;
+      }
+    }
+
+    &--notification{
+      border-top: 0;
+      .basket__item-name,
+      .basket__item-desc,
+      .basket__item-count {
+        font-size: 12px;
+        color: gray;
+        font-weight: 400;
+      }
+    }
+    & + * {
+      margin-top: 12px;
+    }
+  }
+}
