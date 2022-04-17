@@ -10,7 +10,7 @@
         </q-card-section>
 
         <q-card-actions align="right">
-          <q-btn  @click="closeModal" flat label="OK" color="primary" />
+          <q-btn  @click="closeModal" flat label="Добавить" color="primary" />
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -23,7 +23,7 @@ import { ref } from "vue-demi"
 
   interface Props {
     showModal: boolean,
-    title: string
+    title: string,
   }
   const emit = defineEmits(['closeModal']);
   const props = defineProps<Props>()

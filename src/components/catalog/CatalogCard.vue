@@ -13,14 +13,15 @@
     </div>
   </div>
   <app-modal @closeModal="closeModal" title="Опции" :showModal="showModal">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut reprehenderit fugiat laboriosam! Praesentium accusantium mollitia tempora doloribus quasi nobis quibusdam? Unde iure, aperiam magni odio architecto non natus tempora voluptas?
+      <CatalogOptionList :options="options"/>
   </app-modal>
 </template>
 
 <script setup lang="ts">
+import AppModal from 'components/app/AppModal.vue'
+import CatalogOptionList from 'components/catalog/CatalogOptionsList.vue'
 import { useCatalogStore } from "src/stores/catalog-store";
 import { ICard } from "src/types/CardTypes";
-import AppModal from 'components/app/AppModal.vue'
 import { ref } from "vue";
 
 type Props = {
@@ -44,10 +45,3 @@ const closeModal = () => {
 
 
 </script>
-
-
-<style scoped>
-  .card {
-    width: 100% !important;
-  }
-</style>

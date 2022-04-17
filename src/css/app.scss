@@ -24,6 +24,12 @@
 
       flex: 0 0 20%;
     }
+    &-option, &-remove {
+      width: max-content;
+      & + * {
+        margin-left: 20px;
+      }
+    }
     &-count {
       flex: 0 0 15%;
       input {
@@ -75,6 +81,25 @@
       a {
         font-weight: 600;
       }
+    }
+  }
+}
+
+.card {
+  width: 100% !important;
+}
+
+.catalog-options {
+  &__item {
+    display: flex;
+    align-items: center;
+    min-width: 280px;
+    justify-content: space-between;
+    & + * {
+      margin-top: 12px;
+    }
+    input[type="number"] {
+      max-width: 50px;
     }
   }
 }

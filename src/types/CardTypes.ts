@@ -1,6 +1,6 @@
 export interface ICardOptions {
   name: string,
-  value: number | string
+  value: number,
 }
 export interface ICard  {
   id: number;

@@ -11,7 +11,7 @@ export const useCatalogStore = defineStore('catalog', {
         img: 'https://kartinkin.net/uploads/posts/2021-03/1617154014_12-p-pitstsa-domashnyaya-krasivo-12.jpg',
         options: [
           {
-            name: 'Сырр',
+            name: 'Сыр',
             value: 0
           },
           {
