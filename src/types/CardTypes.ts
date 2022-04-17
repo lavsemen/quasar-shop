@@ -1,8 +1,13 @@
+export interface ICardOptions {
+  name: string,
+  value: number | string
+}
 export interface ICard  {
   id: number;
   img: string,
   title: string,
-  desc: string
+  desc: string,
+  options: Array<ICardOptions>
 }
 
 export interface IBasketCard {

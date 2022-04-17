@@ -2,10 +2,12 @@
   <router-view />
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
+import { onMounted } from "vue-demi";
+import { useCatalogStore } from "./stores/catalog-store";
+const catalogStore = useCatalogStore();
 
-export default defineComponent({
-  name: 'App'
+onMounted(() => {
+  catalogStore.getStoregeBasket()
 })
 </script>

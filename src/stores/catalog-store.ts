@@ -5,35 +5,22 @@ export const useCatalogStore = defineStore('catalog', {
   state: () => ({
     items: [
       {
-        title: 'Товар 1',
+        title: 'Маргаррита',
         desc: 'Описание товара',
         id: 1,
-        img: 'https://kartinkin.net/uploads/posts/2021-03/1617154014_12-p-pitstsa-domashnyaya-krasivo-12.jpg'
+        img: 'https://kartinkin.net/uploads/posts/2021-03/1617154014_12-p-pitstsa-domashnyaya-krasivo-12.jpg',
+        options: [
+          {
+            name: 'Сырр',
+            value: 0
+          },
+          {
+            name: 'Вечина',
+            value: 0
+          }
+        ]
       },
-      {
-        title: 'Товар 2',
-        desc: 'Описание товара',
-        id: 2,
-        img: 'https://kartinkin.net/uploads/posts/2021-03/1617154014_12-p-pitstsa-domashnyaya-krasivo-12.jpg'
-      },
-      {
-        title: 'Товар 3',
-        desc: 'Описание товара',
-        id: 3,
-        img: 'https://kartinkin.net/uploads/posts/2021-03/1617154014_12-p-pitstsa-domashnyaya-krasivo-12.jpg'
-      },
-      {
-        title: 'Товар 4',
-        desc: 'Описание товара',
-        id: 4,
-        img: 'https://kartinkin.net/uploads/posts/2021-03/1617154014_12-p-pitstsa-domashnyaya-krasivo-12.jpg'
-      },
-      {
-        title: 'Товар 5',
-        desc: 'Описание товара',
-        id: 5,
-        img: 'https://kartinkin.net/uploads/posts/2021-03/1617154014_12-p-pitstsa-domashnyaya-krasivo-12.jpg'
-      },
+
     ] as Array<ICard>,
 
     basket: [] as Array<IBasketCard>
@@ -65,6 +52,7 @@ export const useCatalogStore = defineStore('catalog', {
       } else {
         basketItem.count++
       }
+      localStorage.setItem('basket', JSON.stringify(this.basket));
 
     },
     setCountInBasket(count: number, id: number) {
@@ -73,11 +61,22 @@ export const useCatalogStore = defineStore('catalog', {
       if (basketItem) {
         basketItem.count = count;
       }
+      localStorage.setItem('basket', JSON.stringify(this.basket));
+    },
+
+    getStoregeBasket() {
+      const basket = localStorage.getItem('basket');
+
+      if (basket) {
+        this.basket = JSON.parse(basket);
+      }
     },
     removeItemInBasket(id: number) {
       const idx = this.basket.findIndex(item => item.id === id);
 
       this.basket.splice(idx, 1);
+
+      localStorage.setItem('basket', JSON.stringify(this.basket));
     }
   },
 });
